@@ -1,6 +1,7 @@
 
 const burger = document.querySelector(".burger");
 const nav = document.querySelector(".nav-links");
+const navbar = document.querySelector("nav");
 const navLinks = document.querySelectorAll(".nav-links li");
 
 
@@ -9,6 +10,7 @@ burger.addEventListener('click', () => {
 
     //toggle nav
     nav.classList.toggle('nav-active');
+
 
     //Animate Links
     navLinks.forEach((link, index) => {
@@ -28,7 +30,16 @@ burger.addEventListener('click', () => {
 });
 
 
+// window.onscroll = function() {scrollFunction()};
 
+// function scrollFunction() {
+//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+//     navbar.style.opacity = "90%";
+//   }
+//     else {
+//     navbar.style.opacity = "70%";
+//   }
+// }
 
 
 

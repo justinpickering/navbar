@@ -18,11 +18,12 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 6vh;
+    min-height: 8vh;
     font-family: 'Poppins', sans-serif;
     background: var(--color-background);
-    opacity: 100%;
+
     /* fixes the navbar */
+    
     position: fixed;
     top: 0;
     width: 100%;
@@ -40,6 +41,7 @@ nav {
     display: flex;
     justify-content: space-around;
     width: 30%;
+    transform: translateX(0px);
 }
 
 .nav-links a {
@@ -65,8 +67,6 @@ nav {
 @media screen and (max-width:1024px) {
 
     .nav-links {
-        display: flex;
-        justify-content: space-around;
         width: 45%;
     }
 }
@@ -75,20 +75,23 @@ nav {
     body{
         overflow-x: hidden;
     }
+
+
     .nav-links {
-        position: fixed;
+        position: absolute;
         right: 0px;
-        height: 94vh;
-        top: 6vh;
+        height: 92vh;
+        top: 8vh;
         background: var(--color-background);
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-        width: 60%;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in;
+        width: 50%;
+        transform: translateX(100vw);
+        animation: navSlideOut 0s forwards;
     }
+
 
     .nav-links li {
         opacity: 0;
@@ -97,14 +100,39 @@ nav {
     .burger {
         display: block;
     }
+
+    .nav-active {
+        animation: navSlide 0.5s ease both;
+    }
+    
+    .nav-off {
+    animation: navSlideOut 0.5s ease both;
+    }
 }
 
 
-.nav-active {
-    transform: translateX(0%);
-}
 
-@keyframes navLinkFade {
+@keyframes navSlide {
+    from {
+      transform: translateX(100%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+}
+  
+@keyframes navSlideOut {
+
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+}
+  
+@keyframes navFade {
     from {
         opacity: 0;
         transform: translateX(50px);
